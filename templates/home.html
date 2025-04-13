@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 600px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            flex: 1;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Information Form</h2>
+        <form action="{{url_for('prediction')}}" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="race_ethnicity">Race/Ethnicity:</label>
+                    <select id="race_ethnicity" name="race_ethnicity" required>
+                        <option value="Group A">Group A</option>
+                        <option value="Group B">Group B</option>
+                        <option value="Group C">Group C</option>
+                        <option value="Group D">Group D</option>
+                        <option value="Group E">Group E</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="education">Parental Level of Education:</label>
+                    <select id="education" name="education" required>
+                        <option value="bachelor's degree">Bachelor's Degree</option>
+                        <option value="some college">Some College</option>
+                        <option value="master's degree">Master's Degree</option>
+                        <option value="associate's degree">Associate's Degree</option>
+                        <option value="high school">High School</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lunch">Lunch:</label>
+                    <select id="lunch" name="lunch" required>
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free/Reduced</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prep">Test Preparation Course:</label>
+                    <select id="prep" name="prep" required>
+                        <option value="completed">Completed</option>
+                        <option value="not completed">Not Completed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reading_score">Reading Score:</label>
+                    <input type="number" id="reading_score" name="reading_score" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="writing_score">Writing Score:</label>
+                    <input type="number" id="writing_score" name="writing_score" required>
+                </div>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <div class="result">
+            <h2>Your Maths Score is {{result}}</h2>
+        </div>
+    </div>
+</body>
+</html>
